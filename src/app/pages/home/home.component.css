@@ -1,0 +1,6 @@
+#featured-products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4rem;
+}

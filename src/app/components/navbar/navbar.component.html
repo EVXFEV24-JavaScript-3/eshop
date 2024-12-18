@@ -1,0 +1,7 @@
+<nav>
+    <ul>
+        <li *ngFor="let pair of getPageValues()">
+            <div (click)="onNavigate.emit(pair[1])">{{ pair[0] }}</div>
+        </li>
+    </ul>
+</nav>
