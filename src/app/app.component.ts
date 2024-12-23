@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from './models/product';
+import { RoutingService } from './services/routing.service';
+import { ProductService } from './services/product.service';
 
 export enum Page {
   Home = 'Home',
@@ -14,15 +16,20 @@ export enum Page {
 })
 export class AppComponent {
   title = 'eshop';
-  activePage: Page = Page.Home;
-  activeProduct: Product | null = null;
 
-  navigate(page: Page): void {
-    this.activePage = page;
+  private routingService: RoutingService;
+  private productService: ProductService;
+
+  constructor(routingService: RoutingService, productService: ProductService) {
+    this.routingService = routingService;
+    this.productService = productService;
   }
 
-  visitProduct(product: Product): void {
-    this.activeProduct = product;
-    this.navigate(Page.Product);
+  get page(): Page {
+    return this.routingService.activePage;
+  }
+
+  get activeProduct(): Product | null {
+    return this.productService.activeProduct;
   }
 }

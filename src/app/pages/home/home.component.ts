@@ -1,20 +1,20 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
-  products: Product[] = [];
+export class HomeComponent {
+  private productService: ProductService;
 
-  @Output()
-  onClickProduct = new EventEmitter<Product>();
+  constructor(productService: ProductService) {
+    this.productService = productService;
+  }
 
-  ngOnInit(): void {
-    fetch('https://dummyjson.com/products')
-      .then(res => res.json())
-      .then(res => this.products = res.products);
+  get products(): Product[] {
+    return this.productService.products;
   }
 }

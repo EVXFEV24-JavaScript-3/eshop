@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-page',
@@ -7,6 +8,13 @@ import { Product } from '../../models/product';
   styleUrl: './product-page.component.css'
 })
 export class ProductPageComponent {
-  @Input()
-  product: Product = ({} as any) as Product;
+  private productService: ProductService;
+
+  constructor(productService: ProductService) {
+    this.productService = productService;
+  }
+
+  get product(): Product {
+    return this.productService.activeProduct as Product;
+  }
 }

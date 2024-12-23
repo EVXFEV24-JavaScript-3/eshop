@@ -1,9 +1,8 @@
 <div id="page-wrapper">
-  <app-navbar (onNavigate)="navigate($event)"></app-navbar>
+  <app-navbar></app-navbar>
   <main>
-    <app-home *ngIf="activePage == 'Home'" (onClickProduct)="visitProduct($event)"></app-home>
-    <app-shop *ngIf="activePage == 'Shop'"></app-shop>
-    <app-product-page *ngIf="activePage == 'Product' && activeProduct != null"
-      [product]="activeProduct"></app-product-page>
+    <app-home *ngIf="page == 'Home'"></app-home>
+    <app-shop *ngIf="page == 'Shop'"></app-shop>
+    <app-product-page *ngIf="page == 'Product' && activeProduct != null"></app-product-page>
   </main>
 </div>
