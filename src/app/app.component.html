@@ -1,8 +1,6 @@
 <div id="page-wrapper">
   <app-navbar></app-navbar>
   <main>
-    <app-home *ngIf="page == 'Home'"></app-home>
-    <app-shop *ngIf="page == 'Shop'"></app-shop>
-    <app-product-page *ngIf="page == 'Product' && activeProduct != null"></app-product-page>
+    <router-outlet />
   </main>
 </div>

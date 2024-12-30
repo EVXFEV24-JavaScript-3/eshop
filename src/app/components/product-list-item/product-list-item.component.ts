@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
-import { RoutingService } from '../../services/routing.service';
-import { Page } from '../../app.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list-item',
@@ -13,16 +12,9 @@ export class ProductListItemComponent {
   @Input()
   product: Product = ({} as any) as Product;
 
-  private productService: ProductService;
-  private routingService: RoutingService;
-
-  constructor(productService: ProductService, routingService: RoutingService) {
-    this.productService = productService;
-    this.routingService = routingService;
-  }
+  constructor(private productService: ProductService, private router: Router) { }
 
   visitProduct(): void {
-    this.productService.activeProduct = this.product;
-    this.routingService.navigate(Page.Product);
+    this.router.navigate(["/product", this.product.id]);
   }
 }

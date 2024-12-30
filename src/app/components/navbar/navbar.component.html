@@ -1,7 +1,10 @@
 <nav>
     <ul>
-        <li *ngFor="let pair of getPageValues()">
-            <div (click)="navigate(pair[1])">{{ pair[0] }}</div>
+        <li>
+            <a routerLink="/">Home</a>
+        </li>
+        <li>
+            <a routerLink="/shop">Shop</a>
         </li>
     </ul>
 </nav>

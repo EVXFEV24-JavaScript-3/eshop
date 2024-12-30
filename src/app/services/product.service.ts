@@ -6,7 +6,6 @@ import { Product } from '../models/product';
 })
 export class ProductService {
   products: Product[] = [];
-  activeProduct: Product | null = null;
 
   constructor() {
     fetch('https://dummyjson.com/products')

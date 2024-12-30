@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './models/product';
-import { RoutingService } from './services/routing.service';
 import { ProductService } from './services/product.service';
-
-export enum Page {
-  Home = 'Home',
-  Shop = 'Shop',
-  Product = 'Product',
-}
 
 @Component({
   selector: 'app-root',
@@ -17,19 +9,9 @@ export enum Page {
 export class AppComponent {
   title = 'eshop';
 
-  private routingService: RoutingService;
   private productService: ProductService;
 
-  constructor(routingService: RoutingService, productService: ProductService) {
-    this.routingService = routingService;
+  constructor(productService: ProductService) {
     this.productService = productService;
-  }
-
-  get page(): Page {
-    return this.routingService.activePage;
-  }
-
-  get activeProduct(): Product | null {
-    return this.productService.activeProduct;
   }
 }
