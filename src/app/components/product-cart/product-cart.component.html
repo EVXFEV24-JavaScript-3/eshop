@@ -1,0 +1,8 @@
+<section [ngClass]="{ opened: cartOpened }">
+  <h2>Cart</h2>
+  <button (click)="onCloseCart.emit()">Close</button>
+
+  <ul>
+    <li *ngFor="let item of cart">{{ item.product.title }}</li>
+  </ul>
+</section>

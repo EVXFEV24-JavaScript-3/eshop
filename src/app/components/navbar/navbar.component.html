@@ -1,10 +1,12 @@
 <nav>
-    <ul>
-        <li>
-            <a routerLink="/">Home</a>
-        </li>
-        <li>
-            <a routerLink="/shop">Shop</a>
-        </li>
-    </ul>
+  <ul>
+    <li>
+      <a routerLink="/">Home</a>
+    </li>
+    <li>
+      <a routerLink="/shop">Shop</a>
+    </li>
+  </ul>
+
+  <button (click)="toggleCart.emit()">Cart</button>
 </nav>

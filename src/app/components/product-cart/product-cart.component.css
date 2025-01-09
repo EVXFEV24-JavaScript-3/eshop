@@ -1,0 +1,15 @@
+section {
+  min-width: 30rem;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: white;
+  border-left: 2px solid gray;
+  display: none;
+  padding: 1rem;
+}
+
+.opened {
+  display: block;
+}
